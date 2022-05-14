@@ -20,3 +20,6 @@ ngrok config add-authtoken <인증 토큰>
 
 # 포트와 ngrok 도메인 연결
 ngork http 8080
+
+# gradlew가 644로 되어있는 경우 755로 변경
+git update-index --add --chmod=+x gradlew
