@@ -13,3 +13,10 @@ docker exec -it jenkins /bin/bash
 
 # Jenkins 비밀번호 찾기
 cat /var/jenkins_home/secrets/initialAdminPassword
+
+# ngrok 설치
+choco install ngrok
+ngrok config add-authtoken <인증 토큰>
+
+# 포트와 ngrok 도메인 연결
+ngork http 8080
