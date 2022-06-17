@@ -1,15 +1,17 @@
-# DevOps Study
+# Django REST framework
 
-### DevOps 스터디 (2022.05.13 ~ )
+### Django REST framework 스터디 (2021.06.17 ~ )
 
 ---
 
-## ⚒️기술 스택
+## :book: 스터디 자료
 
-* CI 구축: Jenkins, Docker
-* 프레임워크: Spring Boot
-* 언어: Java
+* ### [Django REST framework](https://github.com/TaeBbong/drf_for_backend)
+* ### [백엔드를 위한 Django REST Framework with 파이썬](https://www.boostcourse.org/)
 
-## :globe_with_meridians: Homepage
+<br>
 
-* ### [docker를 이용한 CI 구축 연습](https://jojoldu.tistory.com/139)
+## :notebook_with_decorative_cover: Tech Stack
+
+* ### Django
+* ### Django REST framework
