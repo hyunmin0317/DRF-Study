@@ -6,8 +6,8 @@
 
 ## :book: 스터디 자료
 
-* ### [Django REST framework](https://github.com/TaeBbong/drf_for_backend)
-* ### [백엔드를 위한 Django REST Framework with 파이썬](https://www.boostcourse.org/)
+* ### [Django REST framework](https://www.django-rest-framework.org/)
+* ### [백엔드를 위한 Django REST Framework with 파이썬](https://github.com/TaeBbong/drf_for_backend)
 
 <br>
 
