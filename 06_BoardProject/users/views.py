@@ -23,7 +23,24 @@ class LoginView(GenericAPIView):
         return Response({"token": token.key}, status=status.HTTP_200_OK)
 
 
-class ProfileView(RetrieveUpdateAPIView):
-    queryset = Profile.objects.all()
+class ProfileView(generics.GenericAPIView):
     serializer_class = ProfileSerializer
-    permission_classes = [CustomReadOnly]
+
+    def patch(self, request):
+        profile = Profile.objects.get(user=request.user)
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        data = serializer.validated_data
+        profile.nickname = data['nickname']
+        profile.position = data['position']
+        profile.subjects = data['subjects']
+        if request.data['image']:
+            profile.image = request.data['image']
+        profile.save()
+        return Response({"result": "ok"},
+                        status=status.HTTP_206_PARTIAL_CONTENT)
+
+    def get(self, request):
+        profile = Profile.objects.get(user=request.user)
+        serializer = self.get_serializer(profile)
+        return Response(serializer.data)
