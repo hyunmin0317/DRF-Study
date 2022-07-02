@@ -54,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'config.custom_exception_handler.ExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -117,6 +118,7 @@ REST_FRAMEWORK = {
     'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE':
     3,
+    'EXCEPTION_HANDLER': 'config.custom_exception_handler.handle_exception',
 }
 
 # Internationalization
