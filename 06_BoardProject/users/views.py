@@ -23,7 +23,7 @@ class LoginView(GenericAPIView):
         return Response({"token": token.key}, status=status.HTTP_200_OK)
 
 
-class ProfileView(generics.GenericAPIView):
+class ProfileView(GenericAPIView):
     serializer_class = ProfileSerializer
 
     def patch(self, request):
