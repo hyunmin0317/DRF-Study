@@ -1,6 +1,7 @@
 from django.urls import path
-from example.views import HelloAPI
+from example.views import helloAPI, HelloAPI
 
 urlpatterns = [
-    path('hello/', HelloAPI),
+    path('hello/fbv/', helloAPI),
+    path('hello/cbv/', HelloAPI.as_view()),
 ]

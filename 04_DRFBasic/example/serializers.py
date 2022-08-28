@@ -1,4 +1,4 @@
-from rest_auth.app_settings import serializers
+from rest_framework import serializers
 from example.models import Book
 
 
