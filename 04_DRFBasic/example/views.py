@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404
-from rest_framework import status, mixins, generics
+from rest_framework import status, mixins, generics, viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -101,3 +101,9 @@ class BookAPIGenerics(generics.RetrieveUpdateDestroyAPIView):     # RetrieveMode
 
 # 5가지 메인 기능: ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
 # 4가지 조합 기능: ListCreateAPIView, RetrieveUpdateAPIView, RetrieveDestroyAPIView, RetrieveUpdateDestroyAPIView
+
+
+# DRF Viewset
+class BookViewSet(viewsets.ModelViewSet):       # ListModelMixin, CreateModelMixin, RetrieveModelMixin, UpdateModelMixin, DestroyModelMixin
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer

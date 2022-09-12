@@ -1,7 +1,15 @@
 from django.urls import path
-from example.views import helloAPI, bookAPI, booksAPI, HelloAPI, BookAPI, BooksAPI, BookAPIMixins, BooksAPIMixins, BookAPIGenerics, BooksAPIGenerics
+from rest_framework import routers
+from example.views import helloAPI, bookAPI, booksAPI, HelloAPI, BookAPI, BooksAPI, \
+    BookAPIMixins, BooksAPIMixins, BookAPIGenerics, BooksAPIGenerics, BookViewSet
 
-urlpatterns = [
+
+router = routers.SimpleRouter()
+router.register('books', BookViewSet)
+
+urlpatterns = router.urls
+
+urlpatterns += [
     path('fbv/hello/', helloAPI),
     path('fbv/books/', booksAPI),
     path('fbv/book/<int:bid>/', bookAPI),
