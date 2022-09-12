@@ -86,3 +86,18 @@ class BookAPIMixins(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.D
 
     def delete(self, request, *args, **kwargs):  # DestroyModelMixin
         return self.destroy(request, *args, **kwargs)
+
+
+# DRF generics
+class BooksAPIGenerics(generics.ListCreateAPIView):     # ListModelMixin, CreateModelMixin
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
+
+
+class BookAPIGenerics(generics.RetrieveUpdateDestroyAPIView):     # RetrieveModelMixin, UpdateModelMixin, DestroyModelMixin
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
+    lookup_field = 'bid'
+
+# 5가지 메인 기능: ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
+# 4가지 조합 기능: ListCreateAPIView, RetrieveUpdateAPIView, RetrieveDestroyAPIView, RetrieveUpdateDestroyAPIView
