@@ -17,7 +17,7 @@ class TodosAPIView(APIView):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class TodoAPIView(APIView):
@@ -25,3 +25,11 @@ class TodoAPIView(APIView):
         todo = get_object_or_404(Todo, id=pk)
         serializer = TodoDetailSerializer(todo)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def put(self, request, pk):
+        todo = get_object_or_404(Todo, id=pk)
+        serializer = TodoDetailSerializer(todo, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
