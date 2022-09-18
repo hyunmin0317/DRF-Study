@@ -1,9 +1,9 @@
-from django.db.migrations import serializer
+from rest_framework import serializers
 from posts.models import Post
 from users.serializers import ProfileSerializer
 
 
-class PostSerializer(serializer.ModelSerializer):
+class PostSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer(read_only=True)
 
     class Meta:
@@ -11,7 +11,7 @@ class PostSerializer(serializer.ModelSerializer):
         fields = ("pk", "profile", "title", "body", "image", "published_date", "likes")
 
 
-class PostCreateSerializer(serializer.ModelSerializer):
+class PostCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = ("title", "category", "body", "image")
