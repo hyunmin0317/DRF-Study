@@ -1,6 +1,6 @@
 # Django REST framework
 
-### Django REST framework 스터디 (2021.06.17 ~ )
+### Django REST framework 스터디 (2022.06.17 ~ 2022.09.18)
 
 ---
 
